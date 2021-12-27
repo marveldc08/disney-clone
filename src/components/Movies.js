@@ -2,38 +2,19 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-function Movies() {
-    return (
-      <Container>
-        <h4>Recommended for You</h4>
-        <Content>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
+function Movies({ movieProp }) {
+  return (
+    <Container>
+      <h4>Recommended for You</h4>
+      <Content>
+        {movieProp.map((element) => (
+          <Wrap key={element.id}>
+            <img src={element.src} />
           </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-          <Wrap>
-            <img src="images/simpsons.jfif" />
-          </Wrap>
-        </Content>
-      </Container>
-    );
+        ))}
+      </Content>
+    </Container>
+  );
 }
 
 export default Movies

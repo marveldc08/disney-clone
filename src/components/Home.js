@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useEffect }from 'react'
+import $ from 'jquery'
 
 import styled from 'styled-components'
 import ImgSlider from './ImgSlider'
@@ -6,11 +7,23 @@ import Viewers from './Viewers'
 import Movies from './Movies'
 
 function Home() {
+     const [movies, setMovies] = useState ([])
+    useEffect(() => {
+        $.ajax({
+          url: "https://disney-clone-5a8e0-default-rtdb.firebaseio.com/Movies.json",
+          dataType: 'JSON',
+          type: 'GET',
+          success: (data) => {
+            setMovies(data)
+          }
+        })
+    }, [])
+    console.log(movies)
     return (
       <Container>
-        <ImgSlider />
-        <Viewers />
-        <Movies />
+          <ImgSlider />
+          <Viewers />
+          <Movies movieProp={movies} />
       </Container>
     );
 }
