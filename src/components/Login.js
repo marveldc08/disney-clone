@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import styled from 'styled-components'
 
 function Login() {
@@ -6,7 +6,7 @@ function Login() {
       <Container>
         <CTA>
           <CTALogoOne src="images/cta-logo-one.svg" />
-          <SignUp>Get All There</SignUp>
+          <SignUp>Get All Here</SignUp>
           <Description>
             The holiday event you can't miss! get all episodes of Hawkeye,
             streaming now on Disney+. Also Get Primeier access on Raya and the
@@ -71,6 +71,8 @@ const SignUp = styled.a`
 
     &:hover{
         background: #0483ee;
+        text-decoration: none;
+        color:  #f9f9f9;
     }
 `
 const Description = styled.div`

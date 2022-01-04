@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 
@@ -9,7 +10,9 @@ function Movies({ movieProp }) {
       <Content>
         {movieProp.map((element) => (
           <Wrap key={element.id}>
-            <img src={element.src} />
+            <Link to={`/detail/${element.id}`}>
+              <img src={element.src} />
+            </Link>
           </Wrap>
         ))}
       </Content>

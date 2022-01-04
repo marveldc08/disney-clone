@@ -1,39 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled-components'
+import { useParams } from "react-router-dom"
+import $ from 'jquery'
 
 function Detail() {
+    const { id } = useParams();
+    const [movie, setMovie] = useState([])
+    const [src, setSrc] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    useEffect(() => {
+      //grab the movie info from database
+      $.ajax({
+        url: "https://disney-clone-5a8e0-default-rtdb.firebaseio.com/Movies.json",
+        dataType: 'JSON',
+        type: 'GET',
+        success: (data) => {
+          for(let x = 0; x < data.length; x++){
+            //save the movie data
+            if(id == data[x].id){
+              setSrc(data[x].src)
+              setTitle(data[x].title)
+              setDescription(data[x].description)
+            } else{
+              //redirect to home page
+            }
+          }
+        }
+      });
+    }, [])
+
     return (
       <Container>
         <Background>
-          <img src="images/simpsons.jpg" />
+          <img src={src} />
         </Background>
         <ImageTitle>
-          <img src="images/clipart.png" />
+          <img src="/images/viewers-disney.png" />
         </ImageTitle>
         <Controls>
           <PlayButton>
-            <img src="images/play-icon-black.png" />
+            <img src="/images/play-icon-black.png" />
             <span>PLAY</span>
           </PlayButton>
           <TrailerButton>
-            <img src="images/play-icon-white.png" />
+            <img src="/images/play-icon-white.png" />
             <span>Trailer</span>
           </TrailerButton>
           <AddButton>
             <span>+</span>
           </AddButton>
           <GroupWatchButton>
-            <img src="images/group-icon.png" />
+            <img src="/images/group-icon.png" />
           </GroupWatchButton>
         </Controls>
-        <SubTitle>2018 + 7m + Family, Fantasy, Kids, Animation.</SubTitle>
+        <SubTitle>{title}</SubTitle>
         <Description>
-          The series is a satirical depiction of American life, epitomized by
-          the Simpson family, which consists of Homer, Marge, Bart, Lisa, and
-          Maggie. The show is set in the fictional town of Springfield and
-          parodies American culture and society, television, and the human
-          condition.
+          {description}
         </Description>
       </Container>
     );
@@ -42,7 +66,7 @@ function Detail() {
 export default Detail
 
 const Container = styled.div`
-    min-hight : cal(100vh - 70px);
+    min-height : cal(100vh - 70px);
     padding: 0 calc(3.5vw + 5px);
     position: relative;
     
@@ -120,17 +144,20 @@ const AddButton = styled.button`
   span {
     font-size: 30px;
     color: white;
+    align-self: center;
   }
   &:hover {
     background: rgb(198, 198, 198);
   }
+ 
 `;
 const GroupWatchButton = styled(AddButton)`
   background-color: rgb(0, 0, 0);
 `
 const SubTitle = styled.div`
   color: rgb(249, 249, 249);
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 35px;
   min-height: 20px;
   margin-top: 26px;
 `

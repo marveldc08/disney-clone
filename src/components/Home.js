@@ -5,8 +5,18 @@ import styled from 'styled-components'
 import ImgSlider from './ImgSlider'
 import Viewers from './Viewers'
 import Movies from './Movies'
+import Login from './Login'
 
+import { useNavigate } from 'react-router-dom'
+import { selectUserName, userName } from '../features/user/userSlice'
+import { useSelector } from 'react-redux'
+
+ 
 function Home() {
+
+  const userName = useSelector(selectUserName);
+  const navigate = useNavigate();
+
      const [movies, setMovies] = useState ([])
     useEffect(() => {
         $.ajax({
@@ -17,13 +27,20 @@ function Home() {
             setMovies(data)
           }
         })
+        
     }, [])
-    console.log(movies)
+  
     return (
       <Container>
-          <ImgSlider />
-          <Viewers />
-          <Movies movieProp={movies} />
+        {userName ? (
+          <>
+            <ImgSlider />
+            <Viewers />
+            <Movies movieProp={movies} />
+          </>
+        ) : (
+          <> <Login/> </>
+        )}
       </Container>
     );
 }

@@ -1,39 +1,170 @@
 //begin with rfce .
-import React from 'react'
+import React, { useState } from 'react'
+import { auth, provider } from "../firebase";
+import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
-import styled from 'styled-components'
+import { useNavigate, Navigate , Link} from 'react-router-dom';
+
+import styled from "styled-components";
+import MenuIcon from "@mui/material/Menu/Menu";
+import CloseIcon from "@mui/material/Collapse/Collapse";
+
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLogin,
+  setSignOut
+} from "../features/user/userSlice";
+
+import { useDispatch, useSelector} from 'react-redux';
 
 function Header() {
+    const dispatch = useDispatch();
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
+    const navigate = useNavigate()
+    
+    const signIn = () => {
+
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+         
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+
+          dispatch(setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL
+          }));
+          // ...
+           navigate('/home');
+        })
+        .catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          // ...
+        }); 
+    }
+
+   const logOut = () => {
+      auth.signOut()
+      .then(() => {
+        dispatch(setSignOut({ name: "", email: "", photo: ""}));
+        navigate('/');
+      })
+    }
+
+    const [burgernav , setBurgernav] = useState(false);
+    console.log(burgernav);
+
     return (
       <Nav>
+        <LeftMenu>
+          <span>
+            <i
+              className="fa fa-bars"
+              aria-hidden="true"
+              onClick={() => setBurgernav(true)}
+            ></i>
+          </span>
+        </LeftMenu>
+
+        <BurgerNav show={burgernav} >
+          <CloseWrapper>
+            <span>
+              <i
+                className="fa fa-times"
+                aria-hidden="true"
+                onClick={() => setBurgernav(false)}
+              ></i>
+            </span>
+          </CloseWrapper>
+
+          <li>
+            <Link to={`/home`}>
+              <img src="/images/home-icon.svg" />
+              <span>HOME</span>
+            </Link>
+          </li>
+          <li>
+            <a>
+              <img src="/images/search-icon.svg" />
+              <span>SEARCH</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="/images/watchlist-icon.svg" />
+              <span>WATCHLIST</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="/images/original-icon.svg" />
+              <span>ORIGINALS</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="/images/movie-icon.svg" />
+              <span>MOVIES</span>
+            </a>
+          </li>
+          <li>
+            <a>
+              <img src="/images/series-icon.svg" />
+              <span>SERIES</span>
+            </a>
+          </li>
+        </BurgerNav>
+
         <Logo src="/images/logo.svg" />
-        <NavMenu>
-          <a>
-            <img src="/images/home-icon.svg" />
-            <span>HOME</span>
-          </a>
-          <a>
-            <img src="/images/search-icon.svg" />
-            <span>SEARCH</span>
-          </a>
-          <a>
-            <img src="/images/watchlist-icon.svg" />
-            <span>WATCHLIST</span>
-          </a>
-          <a>
-            <img src="/images/original-icon.svg" />
-            <span>ORIGINALS</span>
-          </a>
-          <a>
-            <img src="/images/movie-icon.svg" />
-            <span>MOVIES</span>
-          </a>
-          <a>
-            <img src="/images/series-icon.svg" />
-            <span>SERIES</span>
-          </a>
-        </NavMenu>
-        <UserImg src="/images/pexels-andra.jpg" />
+
+        {!userName ? (
+          <LoginContainer>
+            <Login onClick={signIn}>Login</Login>
+          </LoginContainer>
+        ) : (
+          <>
+            <NavMenu>
+              <Link to={`/home`}>
+                <img src="/images/home-icon.svg" />
+                <span>HOME</span>
+              </Link>
+              <a>
+                <img src="/images/search-icon.svg" />
+                <span>SEARCH</span>
+              </a>
+              <a>
+                <img src="/images/watchlist-icon.svg" />
+                <span>WATCHLIST</span>
+              </a>
+              <a>
+                <img src="/images/original-icon.svg" />
+                <span>ORIGINALS</span>
+              </a>
+              <a>
+                <img src="/images/movie-icon.svg" />
+                <span>MOVIES</span>
+              </a>
+              <a>
+                <img src="/images/series-icon.svg" />
+                <span>SERIES</span>
+              </a>
+            </NavMenu>
+
+            <UserImg onClick={logOut} src={userPhoto} />
+          </>
+        )}
       </Nav>
     );
 }
@@ -41,12 +172,13 @@ function Header() {
 export default Header
 
 const Nav = styled.nav`
- height : 70px;
- background: #090b13;
- display: flex;
- align-item: center;
- padding:0 36px;
- overflow: hidden;
+  height : 70px;
+  background: #090b13;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 36px;
+  overflow: hidden;
 `
 const Logo = styled.img`
  width: 80px;
@@ -54,12 +186,14 @@ const Logo = styled.img`
 const NavMenu = styled.div`
   display: flex;
   flex: 1;
-  margin-left: 25px;
+  margin-left: 80px;
   a {
         display: flex;
         align-items: center;
         padding: 0 12px;
         cursor: pointer;
+        color: #f9f9f9;
+        text-decoration : none;
 
         img {
           height: 20px;
@@ -92,6 +226,10 @@ const NavMenu = styled.div`
             }
         }
   }
+  @media screen and (max-width: 768px){
+      display: none;
+      color: blue;
+  }
 `
 const UserImg = styled.img`
   width: 48px;
@@ -101,4 +239,107 @@ const UserImg = styled.img`
   margin-top: 10px;
   display: flex;
   align-items: center;
+`
+const Login = styled.div`
+    border: 1px solid #f9f9f9;
+    padding: 8px 16px;
+    border-radius: 4px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+
+    &:hover{
+      background-color: #f9f9f9;
+      color: #000;
+      border-color: transparent;
+
+
+    }
+`
+const LoginContainer = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 18px 0;
+    align-items: center;
+`
+
+const CustomWrap = styled.div`
+  width: 48px;
+  height: 48px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+`;
+const LeftMenu = styled.div`
+  display: none;
+  align-items: center;
+  cursor: pointer;
+  
+  a{
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 10px;
+    flex-wrap: nowrap;
+  }
+  span i {
+    color: #f9f9f9;
+  }
+
+  @media screen and (max-width: 768px){
+    display: flex;
+  }
+ 
+`;
+const BurgerNav = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #090b13;
+  width: 300px;
+  z-index: 16;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(-100%)")};
+  transition: transform 0.2s ease-in;
+  li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    a {
+    
+      color: #f9f9f9;
+
+      img {
+        height: 20px;
+      }
+      span {
+        font-size: 13px;
+        letter-spacing: 1.42px;
+        position: relative;
+      }
+
+      &:hover {
+        span:after {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+`;
+const CloseWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+`;
+const CustomClose = styled(CloseIcon)`
+    cursor: pointer;
 `
