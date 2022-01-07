@@ -210,7 +210,7 @@ const Logo = styled.img`
 const NavMenu = styled.div`
   display: flex;
   flex: 1;
-  margin-left: 80px;
+  margin-left: 50px;
   a {
         display: flex;
         align-items: center;
