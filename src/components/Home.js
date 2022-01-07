@@ -21,12 +21,12 @@ function Home() {
     useEffect(() => {
         $.ajax({
           url: "https://disney-clone-5a8e0-default-rtdb.firebaseio.com/Movies.json",
-          dataType: 'JSON',
-          type: 'GET',
+          dataType: "JSON",
+          type: "GET",
           success: (data) => {
-            setMovies(data)
-          }
-        })
+            setMovies(data);
+          },
+        });
         
     }, [])
   

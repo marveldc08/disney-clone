@@ -1,13 +1,13 @@
 //begin with rfce .
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { auth, provider } from "../firebase";
-import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 
 import { useNavigate, Navigate , Link} from 'react-router-dom';
 
 import styled from "styled-components";
-import MenuIcon from "@mui/material/Menu/Menu";
-import CloseIcon from "@mui/material/Collapse/Collapse";
+
+
 
 import {
   selectUserName,
@@ -18,42 +18,61 @@ import {
 
 import { useDispatch, useSelector} from 'react-redux';
 
+ 
 function Header() {
     const dispatch = useDispatch();
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
     const navigate = useNavigate()
     
-    const signIn = () => {
+   const signIn = () => {
+     signInWithPopup(auth, provider)
+       .then((result) => {
+         // This gives you a Google Access Token. You can use it to access the Google API.
 
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-         
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
+         const credential = GoogleAuthProvider.credentialFromResult(result);
+         const token = credential.accessToken;
+         // The signed-in user info.
+         const user = result.user;
 
-          dispatch(setUserLogin({
-            name: user.displayName,
-            email: user.email,
-            photo: user.photoURL
-          }));
-          // ...
-           navigate('/home');
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-          // ...
-        }); 
-    }
+         dispatch(
+           setUserLogin({
+             name: user.displayName,
+             email: user.email,
+             photo: user.photoURL,
+           })
+         );
+         // ...
+         navigate("/home");
+       })
+       .catch((error) => {
+         // Handle Errors here.
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         // The email of the user's account used.
+         const email = error.email;
+         // The AuthCredential type that was used.
+         const credential = GoogleAuthProvider.credentialFromError(error);
+         // ...
+       });
+   };
+
+    useEffect(() => {
+      onAuthStateChanged(auth, user => {
+        if(user){
+           dispatch(
+             setUserLogin({
+               name: user.displayName,
+               email: user.email,
+               photo: user.photoURL,
+             })
+           );
+           // ...
+           navigate("/home");
+        }
+      })
+      
+    }, [])
 
    const logOut = () => {
       auth.signOut()
@@ -64,68 +83,73 @@ function Header() {
     }
 
     const [burgernav , setBurgernav] = useState(false);
-    console.log(burgernav);
 
     return (
       <Nav>
-        <LeftMenu>
-          <span>
-            <i
-              className="fa fa-bars"
-              aria-hidden="true"
-              onClick={() => setBurgernav(true)}
-            ></i>
-          </span>
-        </LeftMenu>
+        {userName ? (
+          <>
+            <LeftMenu>
+              <span>
+                <i
+                  className="fa fa-bars"
+                  aria-hidden="true"
+                  onClick={() => setBurgernav(true)}
+                ></i>
+              </span>
+            </LeftMenu>
 
-        <BurgerNav show={burgernav} >
-          <CloseWrapper>
-            <span>
-              <i
-                className="fa fa-times"
-                aria-hidden="true"
-                onClick={() => setBurgernav(false)}
-              ></i>
-            </span>
-          </CloseWrapper>
+            <BurgerNav show={burgernav}>
+              <CloseWrapper>
+                <span>
+                  <i
+                    className="fa fa-times"
+                    aria-hidden="true"
+                    onClick={() => setBurgernav(false)}
+                  ></i>
+                </span>
+              </CloseWrapper>
 
-          <li>
-            <Link to={`/home`}>
-              <img src="/images/home-icon.svg" />
-              <span>HOME</span>
-            </Link>
-          </li>
-          <li>
-            <a>
-              <img src="/images/search-icon.svg" />
-              <span>SEARCH</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <img src="/images/watchlist-icon.svg" />
-              <span>WATCHLIST</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <img src="/images/original-icon.svg" />
-              <span>ORIGINALS</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <img src="/images/movie-icon.svg" />
-              <span>MOVIES</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <img src="/images/series-icon.svg" />
-              <span>SERIES</span>
-            </a>
-          </li>
-        </BurgerNav>
+              <li>
+                <Link to={`/home`} onClick={() => setBurgernav(false)}>
+                  <img src="/images/home-icon.svg" />
+                  <span>HOME</span>
+                </Link>
+              </li>
+              <li>
+                <a>
+                  <img src="/images/search-icon.svg" />
+                  <span>SEARCH</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="/images/watchlist-icon.svg" />
+                  <span>WATCHLIST</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="/images/original-icon.svg" />
+                  <span>ORIGINALS</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="/images/movie-icon.svg" />
+                  <span>MOVIES</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="/images/series-icon.svg" />
+                  <span>SERIES</span>
+                </a>
+              </li>
+            </BurgerNav>
+          </>
+        ) : (
+          <></>
+        )}
 
         <Logo src="/images/logo.svg" />
 
@@ -228,7 +252,6 @@ const NavMenu = styled.div`
   }
   @media screen and (max-width: 768px){
       display: none;
-      color: blue;
   }
 `
 const UserImg = styled.img`
@@ -236,9 +259,14 @@ const UserImg = styled.img`
   height:48px;
   border-radius: 50%;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width : 480px){
+    width: 31px;
+    height: 31px;
+  }
 `
 const Login = styled.div`
     border: 1px solid #f9f9f9;
@@ -259,20 +287,13 @@ const Login = styled.div`
     }
 `
 const LoginContainer = styled.div`
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 18px 0;
     align-items: center;
 `
 
-const CustomWrap = styled.div`
-  width: 48px;
-  height: 48px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-`;
+
 const LeftMenu = styled.div`
   display: none;
   align-items: center;
@@ -340,6 +361,3 @@ const CloseWrapper = styled.div`
   justify-content: flex-end;
   cursor: pointer;
 `;
-const CustomClose = styled(CloseIcon)`
-    cursor: pointer;
-`

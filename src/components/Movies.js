@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import styled from 'styled-components'
 
-function Movies({ movieProp }) {
+function Movies({ movieProp, allMovieProp }) {
   return (
     <Container>
       <h4>Recommended for You</h4>
@@ -30,6 +30,11 @@ const Content = styled.div`
     display : grid;
     grid-gap: 25px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    
+    //mobile view
+    @media screen and (max-width: 768px){
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 `
 const Wrap = styled.div`
   border-radius: 10px;
@@ -53,4 +58,9 @@ const Wrap = styled.div`
       rgb(0 0 0 / 72%) 0px 30px 22px -10px;
     border-color: rgba(249, 249, 249, 0.8);
   }
+`;
+const Contain = styled.div`
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 `;

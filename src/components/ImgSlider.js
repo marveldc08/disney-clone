@@ -42,6 +42,7 @@ const Carousel = styled(Slider)`
     margin-top: 20px;
     padding: 0 30px;
 
+
     ul li button{
         &:before {
             font-size: 10px;
@@ -60,6 +61,8 @@ const Carousel = styled(Slider)`
     button {
         z-index:1;
     }
+
+  
 `
 const Wrap = styled.div`
     cursor: pointer;
@@ -76,4 +79,5 @@ const Wrap = styled.div`
           border: 1px solid rgba(249, 249, 249, 0.8);
         }
     }
+
 `

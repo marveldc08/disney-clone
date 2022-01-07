@@ -14,21 +14,22 @@ function Detail() {
       //grab the movie info from database
       $.ajax({
         url: "https://disney-clone-5a8e0-default-rtdb.firebaseio.com/Movies.json",
-        dataType: 'JSON',
-        type: 'GET',
+        dataType: "JSON",
+        type: "GET",
         success: (data) => {
-          for(let x = 0; x < data.length; x++){
+          for (let x = 0; x < data.length; x++) {
             //save the movie data
-            if(id == data[x].id){
-              setSrc(data[x].src)
-              setTitle(data[x].title)
-              setDescription(data[x].description)
-            } else{
+            if (id == data[x].id) {
+              setSrc(data[x].src);
+              setTitle(data[x].title);
+              setDescription(data[x].description);
+            } else {
               //redirect to home page
             }
           }
-        }
+        },
       });
+    
     }, [])
 
     return (
@@ -99,30 +100,40 @@ const ImageTitle = styled.div`
         height: 100%;
         object-fit: contain;
     }
+    @media screen and (max-width: 480){
+      margin-top: 80px;
+    }
 `
 const Controls = styled.div`
-    display: flex;
-    align-items: center;
-`
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px){
+    flex-wrap: wrap;
+  }
+`;
 const PlayButton = styled.button`
-    border-radius: 4px;
-    font-size: 15px;
-    padding: 0px 24px;
-    margin-right: 22px;
-    display: flex;
-    align-items: center; 
-    height: 56px;
-    background: rgb (249, 249, 249);
-    border: none;
-    letter-spacing: 1.8px;
-    cursor: pointer;
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 0px 24px;
+  margin-right: 22px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  background: rgb (249, 249, 249);
+  border: none;
+  letter-spacing: 1.8px;
+  cursor: pointer;
 
-    &:hover{
-        background: rgb(198, 198, 198);
-    }
-
-
-`
+  &:hover {
+    background: rgb(198, 198, 198);
+  }
+  @media screen and (max-width: 768px) {
+    height: 54px;
+    margin-right: 7px;
+    margin-bottom: 7px;
+  }
+`;
 const TrailerButton = styled(PlayButton)`
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgb(249, 249, 249);
@@ -149,6 +160,7 @@ const AddButton = styled.button`
   &:hover {
     background: rgb(198, 198, 198);
   }
+  
  
 `;
 const GroupWatchButton = styled(AddButton)`
@@ -166,5 +178,10 @@ const Description = styled.div`
   font-size: 20px;
   margin-top: 16px;
   color: rgb(249, 249, 249);
-  max-width:760px;
-`
+  max-width: 760px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+`;

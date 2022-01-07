@@ -49,12 +49,16 @@ function Viewers() {
 export default Viewers
 
 const Container = styled.div`
-    margin-top: 30px;
-    display: grid;
-    padding: 30px 0px 26px;
-    grid-gap: 25px;
-    grid-template-columns : repeat(5, minmax(0, 1fr));
-`
+  margin-top: 30px;
+  display: grid;
+  padding: 30px 0px 26px;
+  grid-gap: 25px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+`;
 const Wrap = styled.div`
   border: 3px solid rgba(249, 249, 249, 0.1);
   border-radius: 5%;
