@@ -89,23 +89,27 @@ const Background = styled.div`
   }
 `
 const ImageTitle = styled.div`
-    height: 30vh;
-    min-height: 17px;
-    width: 35vw;
-    min-width: 200px;
-    margin-top: 60px;
-   
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+  height: 30vh;
+  min-height: 17px;
+  width: 35vw;
+  min-width: 200px;
+  margin-top: 60px;
 
-    }
-    @media screen and (max-width: 480px){
-      height: 20vh;
-      margin-top: 10px;
-    }
-`
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  @media screen and (max-width: 480px) {
+    height: 20vh;
+    margin-top: 10px;
+  }
+  /**ipad portriate and landscape */
+  @media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    height:25vh;
+    margin-top: 21px;
+  }
+`;
 const Controls = styled.div`
   display: flex;
   align-items: center;
@@ -114,7 +118,7 @@ const Controls = styled.div`
   @media screen and (max-width: 768px){
     flex-wrap: wrap;
   }
-`;
+`
 const PlayButton = styled.button`
   border-radius: 4px;
   font-size: 15px;
@@ -134,10 +138,16 @@ const PlayButton = styled.button`
   &:focus {
     outline: none;
   }
+
   @media screen and (max-width: 768px) {
     height: 54px;
     margin-right: 7px;
     margin-bottom: 7px;
+  }
+  /**ipad portriate and landscape */
+  @media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    height: 56px;
+    margin-right: 10px;
   }
 `;
 const TrailerButton = styled(PlayButton)`
@@ -191,4 +201,17 @@ const Description = styled.div`
     font-size: 17px;
     line-height: 1.3;
   }
-`;
+
+  /*ipad Portrait and Landscape */
+  @media only screen 
+    and (min-device-width: 1024px) 
+    and (max-device-width: 1366px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      font-size: 31px;
+      line-height: 1.5;
+  }
+
+  @media screen and (min-width : 190px) {
+    padding-bottom: 20px;
+  }
+`

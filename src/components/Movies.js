@@ -35,6 +35,13 @@ const Content = styled.div`
     @media screen and (max-width: 768px){
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    /* Portrait and Landscape */
+    @media only screen 
+      and (min-device-width: 1024px) 
+      and (max-device-width: 1366px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 `
 const Wrap = styled.div`
   border-radius: 10px;

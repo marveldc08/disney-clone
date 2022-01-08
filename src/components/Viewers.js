@@ -58,6 +58,10 @@ const Container = styled.div`
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  /* ipad pro Portrait and Landscape */
+  @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 `;
 const Wrap = styled.div`
   border: 3px solid rgba(249, 249, 249, 0.1);

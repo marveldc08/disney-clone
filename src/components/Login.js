@@ -44,14 +44,19 @@ const Container = styled.div`
     }
 `
 const CTA = styled.div`
-    max-width: 650px;
-    padding: 80px 40px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-    align-items: center;
-`
+  max-width: 650px;
+  padding: 80px 40px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+
+  /**ipad portriate and landscape */
+  @media screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    margin-top: 270px;
+  }
+`;
 const CTALogoOne =styled.img`
 
 `
