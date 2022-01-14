@@ -1,76 +1,88 @@
 {
     "Movies": [
           {
-               "title": "Alladin",
-               "src": "https://th.bing.com/th/id/OIP.cxbn2mBcs9sVoWCNkwGNHwHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7",
-               "description": "Aladdin is a street-urchin who lives in Agrabah, a large and busy town with his faithful monkey friend Abu. When Princess Jasmine gets tired of being forced to remain in the palace that overlooks the city, she sneaks out to the marketplace, where she accidentally meets Aladdin.",
+               "title": "Turning Red",
+               "src": "https://static1.colliderimages.com/wordpress/wp-content/uploads/2020/12/turning-red-feature-social.jpg",
+               "trailer": "https://res.cloudinary.com/dc-cloud/video/upload/v1641932802/videos/Turning_Red___Official_Trailer_b6nshh.mp4",
+               "description": "Young actress Rosalie Chiang lends her voice to Mei Lee, a 13-year-old who suddenly “poofs” into a giant red panda when she gets too excited (which is practically ALWAYS). Sandra Oh voices Mei Lee’s protective, if not slightly overbearing mother, Ming, who is never far from her daughter—an unfortunate reality for the teenager. Directed by Shi and produced by Lindsey Collins.",
                "id": "1"
           },
           {
                "title": "Brave",
                "src": "https://th.bing.com/th/id/R.74f51f8fc63c7d2a6741db2fe2af85e4?rik=kFKVrJXfPilOvA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-IcLHyccpZkE%2fUBcPpA4SXrI%2fAAAAAAAAN4s%2fODlbYNB5Md4%2fs1600%2fbrave-char-thumb.jpg&ehk=1e%2fuoy%2b5zlqMHPbVfoLvdM5ZvEFBD68uMQiA0ThaLj4%3d&risl=&pid=ImgRaw&r=0",
-               "description": "Brave is a 2012 American computer-animated fantasy film produced by Pixar Animation Studios and released by Walt Disney Pictures. It was directed by Mark Andrews (in his feature-length directorial debut) and Brenda Chapman and co-directed by Steve Purcell. The story is by Chapman, with the screenplay by Andrews, Purcell, Chapman and Irene Mecchi.",
+               "trailer": "https://res.cloudinary.com/dc-cloud/video/upload/v1641975080/videos/Brave_Official_Trailer_3_2012_Pixar_Movie_HD_360p_jqwww2.mp4",
+               "description": "Merida (Kelly Macdonald), the impetuous but courageous daughter of Scottish King Fergus (Billy Connolly) and Queen Elinor (Emma Thompson), is a skilled archer who wants to carve out her own path in life. Her defiance of an age-old tradition angers the Highland lords and leads to chaos in the kingdom. Merida seeks help from an eccentric witch (Julie Walters), who grants her an ill-fated wish. Now, Merida must discover the true meaning of courage and undo a beastly curse before it's too late.",
                "id": "2"
           },
           {
-               "title": "The Lion King",
-               "src": "https://th.bing.com/th/id/R.8668eff078363546fdc625ffaf0cbb4e?rik=bq54xvp2yWSNQw&pid=ImgRaw&r=0",
-               "description": "The Lion King is an animated movie made by Walt Disney in 1994. It was the most successful animated movie of the 1990s. The movie is about a young lion prince who learns about his role as prince and in the circle of life.",
+               "title": "Black Widow",
+               "src": "https://1.bp.blogspot.com/-f_lY5sfPVqc/YO5K8j1I1KI/AAAAAAAAJSY/k5UAR5-hfGEVd8RXWGXp1vQYQf78snwNQCPcBGAsYHg/w919-h516-p-k-no-nu/black-widow-movie-poster-character-4k-uhdpaper.com-719.1_a-thumbnail.jpg",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641974377/videos/Marvel_Studios_Black_Widow___New_Trailer_360p_gx2zn3.mp4",
+               "description": "In Marvel Studios’ action-packed spy thriller “Black Widow,” Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Pursued by a force that will stop at nothing to bring her down, Natasha must deal with her history as a spy and the broken relationships left in her wake long before she became an Avenger.",
                "id": "3"
           },
           {
                "title": "Encanto",
                "src": "https://th.bing.com/th/id/OIP.RRVAxCNgYx9HpmU4shPssAHaFO?pid=ImgDet&rs=1",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641932932/videos/Disney_s_Encanto___Official_Trailer_360p_hfh5fg.mp4",
                "description": " “Walt Disney Animation Studios’ upcoming feature film ‘Encanto’ tells the tale of the Madrigals, an extraordinary family who live in a wondrous, charmed place called an Encanto. Each child has been blessed with a magic gift unique to them — each child except Mirabel.",
                "id": "4"
           },
           {
                "title": "Eternals",
-               "src": "https://th.bing.com/th/id/OIP.dtBQqxFanUi9AyN0rcydjAHaEN?pid=ImgDet&rs=1",
-               "description": "Eternals is a 2021 American superhero film based on the Marvel Comics race of the same name. Produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures, it is the 26th film in the Marvel Cinematic Universe (MCU). The film is directed by Chloé Zhao, who wrote the screenplay with Patrick Burleigh, Ryan Firpo, and Kaz Firpo.",
+               "src": "https://phantom-marca.unidadeditorial.es/927e619e34b67b9e7326c9266914e6f0/crop/68x0/1311x700/resize/1320/f/jpg/assets/multimedia/imagenes/2021/08/20/16294695683527.jpg",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641974374/videos/MARVEL_S_ETERNALS_Official_Trailer_2021_360p_lruipn.mp4",
+               "description": "The Eternals, a race of immortal beings with superhuman powers who have secretly lived on Earth for thousands of years, reunite to battle the evil Deviants. The film is directed by Chloé Zhao, who wrote the screenplay with Patrick Burleigh, Ryan Firpo, and Kaz Firpo.",
                "id": "5"
           },
           {
                "title": "Frozen",
                "src": "https://br.jetss.com/wp-content/uploads/2020/04/20190930-frozen-2-song-1200x675-1.jpg",
-               "description": "Frozen is a 2013 American 3D computer-animated adventure musical fantasy comedy-drama film, created and produced at Walt Disney Animation Studios and distributed by Walt Disney Studios Motion Pictures. Inspired by the Hans Christian Andersen fairy tale, The Snow Queen, it is the 53rd animated feature in the Disney Animated Canon",
+               "trailer": "https://res.cloudinary.com/dc-cloud/video/upload/v1641932934/videos/Disney_s_Frozen_Official_Trailer_360p_vzv91c.mp4",
+               "description": "When their kingdom becomes trapped in perpetual winter, fearless Anna (Kristen Bell) joins forces with mountaineer Kristoff (Jonathan Groff) and his reindeer sidekick to find Anna's sister, Snow Queen Elsa (Idina Menzel), and break her icy spell. Although their epic journey leads them to encounters with mystical trolls, a comedic snowman (Josh Gad), harsh conditions, and magic at every turn, Anna and Kristoff bravely push onward in a race to save their kingdom from winter's cold grip.",
                "id": "6"
           },
           {
                "title": "Home",
                "src": "https://th.bing.com/th/id/R.a94ed83321ba1817af427ddfff8d04be?rik=OkZs9eYiws%2fehQ&riu=http%3a%2f%2fwww.cartoondistrict.com%2fwp-content%2fuploads%2f2015%2f01%2fbest-upcoming-Cartoon-Movies3-003.jpg&ehk=i9hHYMEks30RZIh7HMZlVQcT3jRH5uuqZXFWttZdaM8%3d&risl=&pid=ImgRaw&r=0",
-               "description": "Home Movie is a 2008 found footage psychological horror film and is the directorial debut of actor Christopher Denham. The film received favorable reviews at Montreal’s 2008 Fantasia Film Festival.",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641932941/videos/Home_Official_Trailer_1_2015_-_Jennifer_Lopez_Rihanna_Animated_Movie_HD_360p_cj7hjk.mp4",
+               "description": "After a hive-minded alien race called the Boov conquer the Earth, they relocate the planet's human population -- all except for a little girl named Tip (Rihanna), who's managed to hide from the aliens. When Tip meets a fugitive Boov called Oh (Jim Parsons), there's mutual distrust. However, Oh is not like his comrades; he craves friendship and fun. As their distrust fades, the pair set out together to find Tip's mother, but, unbeknown to them, the Gorg -- enemies of the Boov -- are en route.",
                "id": "7"
           },
           {
                "title": "Moana",
                "src": "https://th.bing.com/th/id/R.ebae9eeea309dc824b26f5f1c0602117?rik=u7YBdgTbiV1pbw&pid=ImgRaw&r=0",
-               "description": "Moana is a Disney film that opened in 2016 to critical acclaim. Directed by Ron Clements and John Musker, it features an adventurous teenager named Moana living on a Polynesian island in ancient times. The plot follows the track of self-discovery and self-realization, as Moana finds her true leadership qualities through her perils.",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641932937/videos/Moana_Official_Trailer_360p_zwd0g2.mp4",
+               "description": "An adventurous teenager sails out on a daring mission to save her people. During her journey, Moana meets the once-mighty demigod Maui, who guides her in her quest to become a master way-finder. Together they sail across the open ocean on an action-packed voyage, encountering enormous monsters and impossible odds. Along the way, Moana fulfills the ancient quest of her ancestors and discovers the one thing she always sought: her own identity.",
                "id": "8"
           },
           
           {
                "title": "Luca",
                "src": "https://th.bing.com/th/id/OIP.VqqSBDyCYu4pQlAkBWXv5wHaEK?pid=ImgDet&rs=1",
-               "description": "Set in a beautiful seaside town on the Italian Riviera, Disney and Pixar’s original feature film “Luca” is a coming-of-age story about one young boy experiencing an unforgettable summer filled with gelato, pasta and endless scooter rides.",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641975999/videos/luca_full_movie_clips_2021_storyline___disney_pixar_-_cartoon_movie_-_part_1_360p_qfrxvp.mp4",
+               "description": "Set in a beautiful seaside town on the Italian Riviera, Disney and Pixar’s original feature film “Luca” is a coming-of-age story about one young boy experiencing an unforgettable summer filled with gelato, pasta and endless scooter rides.  Luca shares these adventures with his newfound best friend, but all the fun is threatened by a deeply held secret: he is a sea monster from another world just below the water's surface.",
                "id": "9"
           },
           {
                "title": "Raya",
                "src": "https://th.bing.com/th/id/OIP.sGRr2H4pAPaCqCisgThnlgHaEK?pid=ImgDet&rs=1",
-               "description": "Raya is the titular protagonist of Disney 's 2021 animated feature film Raya and the Last Dragon. The daughter of Chief Benja, she is the princess of Kumandra 's Heart Land. In her youth, Raya was appointed the Guardian of the Dragon Gem.",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641932937/videos/Disney_s_Raya_and_the_Last_Dragon___Official_Trailer_360p_b252kr.mp4",
+               "description": "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. However, when sinister monsters known as the Druun threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, those same monsters have returned, and it's up to a lone warrior to track down the last dragon and stop the Druun for good.",
                "id": "10"
           },
           {
                "title": "Fast and Furious 9",
                "src": "https://th.bing.com/th/id/OIP.7wyDgwZC2ys4v-Tj62MyKgHaD5?pid=ImgDet&rs=1",
-               "description": "Fast & Furious 9 is a 2021 American drama film directed by Fisher Stevens and written by Cheryl Guerriero. It stars Justin Timberlake as a former college football star, now an ex-convict, who starts to mentor a young boy (Ryder Allen); Alisha Wainwright, June Squibb, and Juno Temple also star.",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641974392/videos/Fast_Furious_9_Official_Trailer_Universal_Pictures_HD_360p_nfgp75.mp4",
+               "description": "Dom Toretto is living the quiet life off the grid with Letty and his son, but they know that danger always lurks just over the peaceful horizon. This time, that threat forces Dom to confront the sins of his past to save those he loves most. His crew soon comes together to stop a world-shattering plot by the most skilled assassin and high-performance driver they've ever encountered -- Dom's forsaken brother.",
                "id": "11"
           },
           {
-               "title": "Lockdown",
-               "src": "https://th.bing.com/th/id/OIP.Q5zEfciUJIEN5tGSo11b5QHaEK?pid=ImgDet&rs=1",
-               "description": "Lockdown is an upcoming global pandemic thriller film written and directed by Bizhan Tong. The film stars Xander Berkeley and Kevin Leslie, with an international cast including Anita Chui, John Savage, Alix Wilton Regan, Pamela Nomvete, and Mike Leeder in supporting roles.",
+               "title": "Spider-Man No Way Home",
+               "src": "https://allears.net/wp-content/uploads/2021/06/22EC9E80-F2EE-44EF-95FA-850A9D181C31-700x394.jpeg",
+               "trailer" : "https://res.cloudinary.com/dc-cloud/video/upload/v1641974376/videos/SPIDER-MAN__NO_WAY_HOME_-_Official_Trailer_HD_360p_rg7niy.mp4",
+               "description": "With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
                "id": "12"
           }
           

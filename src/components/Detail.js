@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useParams } from "react-router-dom"
 import $ from 'jquery'
+import {Link} from 'react-router-dom'
 
 function Detail() {
     const { id } = useParams();
@@ -41,14 +42,18 @@ function Detail() {
           <img src="/images/viewers-disney.png" />
         </ImageTitle>
         <Controls>
-          <PlayButton>
-            <img src="/images/play-icon-black.png" />
-            <span>PLAY</span>
-          </PlayButton>
-          <TrailerButton>
-            <img src="/images/play-icon-white.png" />
-            <span>Trailer</span>
-          </TrailerButton>
+          <Link to={`/watching/${id}`}>
+            <PlayButton>
+              <img src="/images/play-icon-black.png" />
+              <span>PLAY</span>
+            </PlayButton>
+          </Link>
+          <Link to={`/watching/${id}`}>
+            <TrailerButton>
+              <img src="/images/play-icon-white.png" />
+              <span>Trailer</span>
+            </TrailerButton>
+          </Link>
           <AddButton>
             <span>+</span>
           </AddButton>
@@ -57,9 +62,7 @@ function Detail() {
           </GroupWatchButton>
         </Controls>
         <SubTitle>{title}</SubTitle>
-        <Description>
-          {description}
-        </Description>
+        <Description>{description}</Description>
       </Container>
     );
 }
@@ -114,6 +117,10 @@ const Controls = styled.div`
   display: flex;
   align-items: center;
   
+  a:hover{
+    text-decoration: none;
+   
+  }
  
   @media screen and (max-width: 768px){
     flex-wrap: wrap;
